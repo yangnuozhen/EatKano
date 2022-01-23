@@ -305,10 +305,10 @@ function showGameScoreLayer() {
     l.className = l.className.replace(/bgc\d/, 'bgc' + c);
     document.getElementById('GameScoreLayer-text').innerHTML = shareText(_gameScore);
     var score_text='得分&nbsp;&nbsp;';
-    score_text+=deviation_time<23000?_gameScore:"<span style='color:red;'>"+_gameScore+"</span>";
+    score_text+=deviation_time<114517000?_gameScore:"<span style='color:red;'>"+_gameScore+"</span>";
     document.getElementById('GameScoreLayer-score').innerHTML = score_text;
     var bast = cookie('bast-score');
-    if(deviation_time<23000){
+    if(deviation_time<114517000){
         if (!bast || _gameScore > bast) {
             bast = _gameScore;
             cookie('bast-score', bast, 100);
@@ -337,7 +337,7 @@ function backBtn() {
 function shareText(score) {
     var date2 = new Date();
     deviation_time = (date2.getTime() - _date1.getTime())
-    if (deviation_time > 23000) {
+    if (deviation_time > 114517000) {
         return '倒计时多了' + ((deviation_time / 1000) - 20).toFixed(2) + "s";
     }
     SubmitResults();
